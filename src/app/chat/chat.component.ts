@@ -1,8 +1,8 @@
 import { AfterViewChecked, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { QuestionAndAnswers } from './models/QuestionAndAnswers';
-import { Message } from './models/Message';
+import { QuestionAndAnswers } from '../models/QuestionAndAnswers';
+import { Message } from '../models/Message';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
