@@ -1,15 +1,27 @@
 <div class="chat-container">
-    <div class="chat-messages">
-      <div *ngFor="let message of messages" class="message">
-        {{ message }}
-      </div>
+    <div class="chat-messages" #chatMessages>
+        <div *ngFor="let message of messages" class="message">
+            <div [ngClass]="{'bot-message': message.fromBot, 'user-message': !message.fromBot}">
+                <div [ngClass]="{'bot-message-content': message.fromBot, 'user-message-content': !message.fromBot}">
+                    <h6 *ngIf="message.fromBot" class="message-author">Bot</h6>
+                    <h6 *ngIf="!message.fromBot" class="message-author">{{ userName }}</h6>
+                    {{ message.content }}
+                </div>
+            </div>
+        </div>
     </div>
   
+    <div *ngIf="displayGreetingMessage" class="bot-message greeting-message">
+        <div class="bot-message-content">
+            <h6 class="message-author">Bot</h6>
+            W czym mogę pomóc?
+        </div>
+    </div>
+
     <div class="chat-input">
         <form (ngSubmit)="sendMessage($event)">
-          <input type="text" [(ngModel)]="userInput" name="userInput" placeholder="Wpisz wiadomość..." />
-          <button type="submit">Wyślij</button>
+            <input type="text" [(ngModel)]="userInput" name="userInput" placeholder="Wpisz wiadomość..." autocomplete="off" />
+            <button type="submit">Wyślij</button>
         </form>
     </div>
 </div>
-  
