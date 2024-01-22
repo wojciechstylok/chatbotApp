@@ -1,0 +1,20 @@
+<div class="settings-container">
+    Ustawienia
+
+    <div>
+        <form (ngSubmit)="saveSettings($event)">
+            <p>
+                Nazwa użytkownika:
+                <input type="text" [(ngModel)]="userName" name="userName" autocomplete="off" />
+            </p>
+            <p>
+                <mat-checkbox [(ngModel)]="showAvatars" name="showAvatars">Pokazuj avatary</mat-checkbox>
+            </p>
+            <!-- <p>
+                Wybierz avatar:
+            </p> -->
+            
+            <button class="save-button" type="submit">Zapisz</button>
+        </form>
+    </div>
+</div>

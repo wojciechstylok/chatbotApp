@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { QuestionAndAnswers } from '../models/QuestionAndAnswers';
 import { Message } from '../models/Message';
 import { MatIconModule } from '@angular/material/icon';
+import { SettingsComponent } from '../settings/settings.component';
+import { Settings } from '../models/Settings';
 
 @Component({
   selector: 'app-chat',
@@ -11,7 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    SettingsComponent
   ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
@@ -23,8 +26,10 @@ export class ChatComponent implements AfterViewChecked {
   }
   messages: Message[] = [];
   userName: string = 'Gość';
+  showAvatars: boolean = true;
   userInput: string = '';
   displayGreetingMessage: boolean = true;
+  displaySettings: boolean = false;
   definedQuestions: QuestionAndAnswers[] =
   [
     {
@@ -78,6 +83,16 @@ export class ChatComponent implements AfterViewChecked {
       answer.content = 'Nie zrozumiałem co masz na myśli :( Czy możesz powtórzyć?';
     }
     this.messages.push(answer);
+  }
+
+  openSettings(){
+    this.displaySettings = !this.displaySettings;
+  }
+  
+  handleSettingsChanged(newSettings: Settings): void {
+    this.userName = newSettings.userName;
+    this.showAvatars = newSettings.showAvatars;
+    this.displaySettings = false;
   }
 
   private scrollToBottom(): void {

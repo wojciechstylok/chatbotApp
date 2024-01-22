@@ -2,6 +2,9 @@
     <div class="chat-messages" #chatMessages>
         <div *ngFor="let message of messages" class="message">
             <div [ngClass]="{'bot-message': message.fromBot, 'user-message': !message.fromBot}">
+                <div class="avatar-image" [ngClass]="{'bot-avatar-image': message.fromBot}" *ngIf="showAvatars">
+                    <img src="assets/images/chatbot.webp" alt="Bot avatar" class="avatar-image">
+                </div>
                 <div [ngClass]="{'bot-message-content': message.fromBot, 'user-message-content': !message.fromBot}">
                     <h6 *ngIf="message.fromBot" class="message-author">Bot</h6>
                     <h6 *ngIf="!message.fromBot" class="message-author">{{ userName }}</h6>
@@ -12,6 +15,9 @@
     </div>
   
     <div *ngIf="displayGreetingMessage" class="bot-message greeting-message">
+        <div *ngIf="showAvatars">
+            <img src="assets/images/chatbot.webp" alt="Bot avatar" class="avatar-image">
+        </div>
         <div class="bot-message-content">
             <h6 class="message-author">Bot</h6>
             W czym mogę pomóc?
@@ -19,9 +25,14 @@
     </div>
 
     <div class="chat-input">
+        <div class="settings-button" (click)="openSettings()">
+            <mat-icon>settings</mat-icon>
+        </div>
         <form (ngSubmit)="sendMessage($event)">
             <input type="text" [(ngModel)]="userInput" name="userInput" placeholder="Wpisz wiadomość..." autocomplete="off" />
             <button type="submit">Wyślij</button>
         </form>
     </div>
 </div>
+
+<app-settings *ngIf="displaySettings" [userName]="userName" [showAvatars]="showAvatars" (settingsChanged)="handleSettingsChanged($event)"></app-settings>
