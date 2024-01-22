@@ -55,6 +55,7 @@
     width: fit-content;
     background-color: blanchedalmond;
     padding: 10px;
+    margin-right: 10px;
     border-radius: 10px;
   }
 
@@ -85,3 +86,22 @@
     display: flex;
     width: 100%;
   }
+
+::ng-deep .chat-messages {
+  margin-right: -5px;
+  margin-left: 5px;
+}
+
+::ng-deep .chat-messages::-webkit-scrollbar {
+  width: 12px;
+  margin-right: -5px;
+  margin-left: 5px;
+}
+
+::ng-deep .chat-messages::-webkit-scrollbar-thumb {
+  background-color: green;
+}
+
+::ng-deep .chat-messages::-webkit-scrollbar-track {
+  background-color: blanchedalmond;
+}
