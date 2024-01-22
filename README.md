@@ -1,27 +1,36 @@
 # ChatbotApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+Ten projekt to zadanie rekrutacyjne - aplikacja webowa uruchamiana w przeglądarce WWW (działająca lokalnie, bez konieczności posiadania połączenia z internetem)  - symulator czatu z chatbotem.
 
-## Development server
+![1](https://github.com/wojciechstylok/chatbotApp/assets/58105342/74eabbbc-d421-4c70-921a-7809698966f2)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Działanie
 
-## Code scaffolding
+Chatbot odpowiada na pięć zdefiniowanych wiadomości podanych poniżej, wysyłając losowo jedną z pięciu odpowiedzi.
+Na pozostałe wiadomości użytkownika odpowiada: „Nie zrozumiałem co masz na myśli :( Czy możesz powtórzyć?”
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lista wiadomości na które chatbot powinien odpowiadać:
 
-## Build
+- „Witaj”
+- „Jak się nazywasz?”
+- „Czym się zajmujesz?”
+- „Skąd jesteś?”
+- „Ile masz lat?”
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Zanim użytkownik wyśle pierwszą wiadomość, na samym dole okienka czatu wyświetla się wiadomość powitalna od chatbota o treści: „W czym mogę pomóc?”
 
-## Running unit tests
+W okienku do wpisywania tekstu wciśnięcie klawisza „Enter” wysyła wiadomość, podobnie jak klilknięcie przycisku „wyślij” myszką. Po wysłaniu wiadomości okienko do wpisywania tekstu jest czyszczone, a wiadomość pojawia się w okienku górnym, na samym dole, pod którą pojawia się odpowiedź od chatbota.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Wiadomości od chatbota są wyrównane do prawej, a od użytkownika wyrównane do lewej.
 
-## Running end-to-end tests
+![3](https://github.com/wojciechstylok/chatbotApp/assets/58105342/e4c14491-7c1c-40e3-b3a3-1c2ba7b79374)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Ustawienia
 
-## Further help
+Użytkownik może po kliknięciu ikonki ustawień dokonać kilku modyfikacji w wyświetlaniu czatu:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- wprowadzić swoje imię, które będzie się pojawiało powyżej wiadomości wysłanych przez użytkownika
+- włączyć lub wyłączyć pokazywanie avatarów
+- wybrać dla siebie jeden z dostępnych avatarów
+
+![2](https://github.com/wojciechstylok/chatbotApp/assets/58105342/bf517dbd-e714-4cbd-9120-1ba8b2e23a8e)
