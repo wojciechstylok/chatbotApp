@@ -27,6 +27,7 @@ export class ChatComponent implements AfterViewChecked {
   messages: Message[] = [];
   userName: string = 'Gość';
   showAvatars: boolean = true;
+  selectedAvatar: string = 'avatar1.png';
   userInput: string = '';
   displayGreetingMessage: boolean = true;
   displaySettings: boolean = false;
@@ -92,6 +93,7 @@ export class ChatComponent implements AfterViewChecked {
   handleSettingsChanged(newSettings: Settings): void {
     this.userName = newSettings.userName;
     this.showAvatars = newSettings.showAvatars;
+    this.selectedAvatar = newSettings.selectedAvatar;
     this.displaySettings = false;
   }
 

@@ -16,11 +16,12 @@ import { Settings } from '../models/Settings';
 export class SettingsComponent {
   @Input() userName: string = '';
   @Input() showAvatars: boolean = false;
+  @Input() selectedAvatar: string = '';
   @Output() settingsChanged: EventEmitter<Settings> = new EventEmitter<Settings>();
 
 
   saveSettings(event: Event){
-    const newSettings = new Settings(this.userName, this.showAvatars)
+    const newSettings = new Settings(this.userName, this.showAvatars, this.selectedAvatar)
     this.settingsChanged.emit(newSettings);
   }
 }

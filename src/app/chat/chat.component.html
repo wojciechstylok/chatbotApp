@@ -3,7 +3,8 @@
         <div *ngFor="let message of messages" class="message">
             <div [ngClass]="{'bot-message': message.fromBot, 'user-message': !message.fromBot}">
                 <div class="avatar-image" [ngClass]="{'bot-avatar-image': message.fromBot}" *ngIf="showAvatars">
-                    <img src="assets/images/chatbot.webp" alt="Bot avatar" class="avatar-image">
+                    <img *ngIf="message.fromBot" src="assets/images/chatbot.webp" alt="Bot avatar" class="avatar-image">
+                    <img *ngIf="!message.fromBot" src="assets/images/{{ selectedAvatar }}" alt="User avatar" class="avatar-image">
                 </div>
                 <div [ngClass]="{'bot-message-content': message.fromBot, 'user-message-content': !message.fromBot}">
                     <h6 *ngIf="message.fromBot" class="message-author">Bot</h6>
@@ -35,4 +36,5 @@
     </div>
 </div>
 
-<app-settings *ngIf="displaySettings" [userName]="userName" [showAvatars]="showAvatars" (settingsChanged)="handleSettingsChanged($event)"></app-settings>
+<app-settings *ngIf="displaySettings" [userName]="userName" [showAvatars]="showAvatars" [selectedAvatar]="selectedAvatar"
+                (settingsChanged)="handleSettingsChanged($event)"></app-settings>

@@ -10,9 +10,28 @@
             <p>
                 <mat-checkbox [(ngModel)]="showAvatars" name="showAvatars">Pokazuj avatary</mat-checkbox>
             </p>
-            <!-- <p>
-                Wybierz avatar:
-            </p> -->
+            <p>
+                Wybierz avatar:<br>
+                <label>
+                    <input type="radio" [(ngModel)]="selectedAvatar" name="avatar" value="avatar1.png" />
+                    <img src="assets/images/avatar1.png" alt="Avatar 1" class="avatar-preview" width="50px">
+                </label>
+
+                <label>
+                    <input type="radio" [(ngModel)]="selectedAvatar" name="avatar" value="avatar2.png" />
+                    <img src="assets/images/avatar2.png" alt="Avatar 2" class="avatar-preview" width="50px">
+                </label>
+
+                <label>
+                    <input type="radio" [(ngModel)]="selectedAvatar" name="avatar" value="avatar3.png" />
+                    <img src="assets/images/avatar3.png" alt="Avatar 3" class="avatar-preview" width="50px">
+                </label>
+
+                <label>
+                    <input type="radio" [(ngModel)]="selectedAvatar" name="avatar" value="avatar4.png" />
+                    <img src="assets/images/avatar4.png" alt="Avatar 4" class="avatar-preview" width="50px">
+                </label>
+            </p>
             
             <button class="save-button" type="submit">Zapisz</button>
         </form>
